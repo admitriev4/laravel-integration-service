@@ -1,0 +1,46 @@
+version: "2"
+services:
+  www:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    image: php:8.0.3-apache
+    container_name: multi-integration-service-www
+    ports:
+      - 8000:80
+    working_dir: /var/www/html
+    volumes:
+      - ./www:/var/www/html
+    links:
+      - db:db
+    networks:
+      - default
+  db:
+    image: mysql
+    container_name: multi-integration-service-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: laravelmulti-integration-service
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: multi-integration-service-pma
+    links:
+      - db:db
+    ports:
+      - 8001:80
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    networks:
+      - default
+volumes:
+  persistent:
