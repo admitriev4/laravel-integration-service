@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Services\Integrations;
 
 class integrateApiLayer {
     protected $apiKey = 'PJFgdhicReT7d5Cl10NMmIQSSVEd0V7A';
