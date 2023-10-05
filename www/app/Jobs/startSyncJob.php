@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 
+use App\Models\Course;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -33,6 +34,8 @@ class startSyncJob implements ShouldQueue
     public function handle()
     {
         $result = $this->service->getCources();
-        //сохранение результатов в бд
+        foreach ($result as $key => $value) {
+            Course::addOrUpdate($key, $this->service->serviceName, $value);
+        }
     }
 }

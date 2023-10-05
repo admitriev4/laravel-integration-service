@@ -2,10 +2,11 @@
 
 namespace App\Services\Integrations;
 
-class integrateCBR
+class integrateCBR implements ServicesInterface
 {
     protected $cources;
     protected $httpClient;
+    public $serviceName = "CBR";
 
     public function __construct()
     {
