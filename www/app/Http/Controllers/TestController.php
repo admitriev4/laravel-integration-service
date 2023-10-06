@@ -11,9 +11,9 @@ use App\Services\Integrations\integrateApiLayer;
 class TestController extends Controller
 {
 
-   /* public function test(integrateApiLayer $integrateApiLayer) {
+    public function test(integrateApiLayer $integrateApiLayer) {
         //$data = $integrateApiLayer->getCurrencies();
         $data = $integrateApiLayer->getCources();
         var_dump($data);
-    }*/
+    }
 }
