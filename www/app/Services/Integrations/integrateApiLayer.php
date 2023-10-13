@@ -14,19 +14,19 @@ class integrateApiLayer {
     public function getCurrencies() {
         $request = $this->httpClient->get("https://api.apilayer.com/currency_data/list",array("headers" => array('apikey' => $this->apiKey)));
         $result = json_decode($request->getBody()->getContents());
-        foreach ($result->quotes as $key => $value) {
+        foreach ($result->currencies as $key => $value) {
             $currencies[$key] = $key;
         }
         return $currencies;
     }
 
-    public function getCources($base = 'RUB', $arSymbols = array('USD')) {
+    public function getCources() {
         $cources = array();
-        $symbols = implode(',', $arSymbols);
-        $request = $this->httpClient->get("https://api.apilayer.com/currency_data/live?base=".$base,array("headers" => array('apikey' => $this->apiKey)));
+        $request = $this->httpClient->get("https://api.apilayer.com/currency_data/live?source=RUB",array("headers" => array('apikey' => $this->apiKey)));
         $result = json_decode($request->getBody()->getContents());
         foreach ($result->quotes as $key => $value) {
-            $cources[$key] = $value;
+            $k = str_replace('RUB', '', $key);
+            $cources[$k] = $value;
         }
         return $cources;
     }

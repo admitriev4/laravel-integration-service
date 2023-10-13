@@ -15,9 +15,9 @@ class Course extends Model
 
     public static function addOrUpdate(string $currencyCode, string $service, string $value) {
         $currency = self::findCurrency($currencyCode);
-        $course = self::exists($currency, $service);
         $time = Carbon::now();
-        if($course == false) {
+        $course = self::exists($currency, $service, $time);
+        if($course == false && $currency != false) {
             $req = DB::table(self::$tableName)->insert([
                 'currency' => $currency,
                 'service' => $service,
@@ -34,10 +34,13 @@ class Course extends Model
 
     }
 
-    public static function exists(string $currencyID, string $service) {
+    public static function exists(string $currencyID, string $service, $time) {
+        $date = explode(' ', $time->toDateTimeString());
         $req = DB::table(self::$tableName)
             ->where('currency', "=" , $currencyID)
-            ->where('service', "=", $service)->get();
+            ->where('service', "=", $service)
+            ->where('updated_at', ">", $date)
+            ->get();
         $course = $req->first();
         if(!empty($course)) { return $course->id; } else { return false; }
     }
@@ -45,6 +48,11 @@ class Course extends Model
     public static function findCurrency(string $code) {
         $req = DB::table('currency')->where('code', "=" , $code)->get();
         $currency = $req->first();
-        return $currency->id;
+
+        if(!empty($currency)) { return $currency->id; } else {
+            var_dump($code);
+            var_dump($currency);
+            return false; }
+
     }
 }

@@ -18,7 +18,7 @@ class startUpdateCurrency extends Command
      *
      * @var string
      */
-    protected $signature = 'sync:startUpdateCurrency {service}';
+    protected $signature = 'sync:startUpdateCurrency {service?}';
 
     /**
      * The console command description.

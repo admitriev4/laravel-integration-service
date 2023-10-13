@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use App\Factories\SyncFactory;
 
 
 class startSyncJob implements ShouldQueue
@@ -33,9 +34,14 @@ class startSyncJob implements ShouldQueue
      */
     public function handle()
     {
-        $result = $this->service->getCources();
+        $serviceObject = SyncFactory::getSyncService($this->service);
+        $result = $serviceObject->getCources();
         foreach ($result as $key => $value) {
-            Course::addOrUpdate($key, $this->service->serviceName, $value);
+            /*var_dump($key);
+            var_dump($serviceObject->serviceName);
+            var_dump($value);
+            echo "<br><br><br>";*/
+            Course::addOrUpdate($key, $serviceObject->serviceName, $value);
         }
     }
 }

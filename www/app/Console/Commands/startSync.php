@@ -13,7 +13,7 @@ class startSync extends Command
      *
      * @var string
      */
-    protected $signature = 'sync:startSync {service}';
+    protected $signature = 'sync:start {service?}';
 
     /**
      * The console command description.
@@ -41,5 +41,6 @@ class startSync extends Command
     {
         $serviceName = $this->argument('service');
         IntegrationsService::sync($serviceName);
+
     }
 }
