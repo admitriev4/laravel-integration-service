@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
+Route::get('/', [SiteController::class, 'index']);
+Route::post('/register-user/', [SiteController::class, 'register']);
+
