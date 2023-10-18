@@ -21,17 +21,24 @@ use \App\Http\Controllers\AuthController;
 });*/
 
 Route::group([
-
     'middleware' => 'api',
     'prefix' => 'auth'
-
 ], function ($router) {
-
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
-
 });
 
-Route::get('/test', [ApiController::class, 'test']);
+Route::group([
+    'middleware' => 'auth.jwt',
+    'prefix' => 'get'
+], function ($router) {
+    Route::get('/test', [ApiController::class, 'test']);
+    Route::get('/currencies', [ApiController::class, 'getCurrencies']);
+    Route::get('/courses', [ApiController::class, 'getCources']);
+    Route::get('/course/{service}/{date?}', [ApiController::class, 'getCource']);
+});
+
+
+

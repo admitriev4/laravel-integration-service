@@ -33,4 +33,10 @@ class Currency extends Model
 
        if(!empty($req->all())) { return true; } else { return false; }
     }
+
+    public static function getList() {
+        $req = DB::table(self::$tableName)->get();
+        return $req->all();
+    }
+
 }

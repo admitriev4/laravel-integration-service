@@ -21,9 +21,7 @@ class SiteController extends Controller
                 'name'     => $request->input('name'),
                 'password' => bcrypt($request->input('password'))
             ]);
-
-            var_dump($user->email);
-            var_dump($user->password);
+            echo "Пользователь зарегистрирован!";
         }
     }
 

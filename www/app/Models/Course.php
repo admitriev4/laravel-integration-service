@@ -49,10 +49,28 @@ class Course extends Model
         $req = DB::table('currency')->where('code', "=" , $code)->get();
         $currency = $req->first();
 
-        if(!empty($currency)) { return $currency->id; } else {
-            var_dump($code);
-            var_dump($currency);
-            return false; }
+        if(!empty($currency)) { return $currency->id; } else {return false; }
 
+    }
+
+    public static function getList() {
+        $req = DB::table(self::$tableName)->get();
+        return $req->all();
+    }
+
+    public static function getListService($service, $date) {
+       if($date == null) {
+           $req = DB::table(self::$tableName)
+               ->where('service', "=", $service)
+               ->get();
+       } else {
+           $req = DB::table(self::$tableName)
+               ->where('service', "=", $service)
+               ->whereDate('created_at', $date)
+               ->get();
+       }
+
+
+        return $req->all();
     }
 }
