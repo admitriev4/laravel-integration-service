@@ -2,6 +2,8 @@
 
 namespace App\Services\Integrations;
 
+use Illuminate\Support\Facades\Log;
+
 class integrateCBR implements ServicesInterface
 {
     protected $cources;
@@ -12,6 +14,7 @@ class integrateCBR implements ServicesInterface
     {
         $this->httpClient = new \GuzzleHttp\Client();
         $request = $this->httpClient->get("https://www.cbr-xml-daily.ru/daily_json.js");
+        Log::log(serialize($request));
         $this->cources = json_decode($request->getBody()->getContents());
 
     }
