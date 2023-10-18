@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "04cc6fd3-327f-4eeb-bb80-9748e4e36478",
+		"name": "multi-integration-service-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18021731"
+	},
+	"item": [
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "a.dmitriev@thecoders.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a.dmitriev@thecoders.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a.dmitriev@thecoders.ru",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "a.dmitriev@thecoders.ru",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currencies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/currencies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cources",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courseApilayer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/course/ApiLayer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"course",
+						"ApiLayer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courseApilayer date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/course/ApiLayer/20231012",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"course",
+						"ApiLayer",
+						"20231012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courseCBR",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/course/CBR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"course",
+						"CBR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courseCBR date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY5NzYxOTgwMiwiZXhwIjoxNjk3NjIzNDAyLCJuYmYiOjE2OTc2MTk4MDIsImp0aSI6ImViamJ3Q0NJUXRjaW95emgiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.l04xz78CryQQBOyPYdObyAMe8z6LJ22-jxNEt5Z0cGU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get/course/ApiLayer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"course",
+						"ApiLayer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
